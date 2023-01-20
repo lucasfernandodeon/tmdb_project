@@ -11,5 +11,12 @@ class MovieModel {
     required this.voteAverage,
   });
 
-
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
+    return MovieModel._(
+      posterPath: json['poster_path'],
+      title: json['title'],
+      releaseDate: json['release_date'],
+      voteAverage: json['vote_average'],
+    );
+  }
 }
