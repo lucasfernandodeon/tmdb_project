@@ -1,19 +1,19 @@
 import 'movie_model.dart';
 
-class ApiResponseModel {
+class NowPlayingResponseModel {
   final int page;
   final int totalPages;
   final List<MovieModel> moviesList;
 
-  ApiResponseModel._(
+  NowPlayingResponseModel._(
       {required this.page, required this.totalPages, required this.moviesList});
 
-  factory ApiResponseModel.fromJson(Map<String, dynamic> json) {
+  factory NowPlayingResponseModel.fromJson(Map<String, dynamic> json) {
     List<MovieModel> auxMoviesList = [];
     for (var movie in json['results']) {
       auxMoviesList.add(MovieModel.fromJson(movie));
     }
-    return ApiResponseModel._(
+    return NowPlayingResponseModel._(
         page: json['page'],
         totalPages: json['total_pages'],
         moviesList: auxMoviesList);
