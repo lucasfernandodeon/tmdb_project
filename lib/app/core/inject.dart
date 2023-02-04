@@ -12,9 +12,9 @@ class Inject {
     getIt.registerLazySingleton<http.Client>(() => http.Client());
 
     getIt.registerLazySingleton<NowPlayingRepository>(
-        () => NowPlayingApiRepository(httpClient: getIt.get()));
+            () =>NowPlayingApiRepository(httpClient: getIt.get()));
 
     getIt.registerLazySingleton<NowPlayingStore>(
-        () => NowPlayingStore(nowPlayingApiRepository: getIt.get()));
+        () => NowPlayingStore(nowPlayingRepository: getIt.get()));
   }
 }
